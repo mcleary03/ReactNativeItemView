@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
-import { Text, View, Image, Button, Alert, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react'
+import { ScrollView, Text, Image, View, Button, Alert, TouchableOpacity } from 'react-native'
+import {Actions} from 'react-native-router-flux'
 
-export default class App extends Component {
-  _handleButtonPress = () => {
-    Alert.alert('This will link later!');
-  };
+export default class Item extends React.Component {
   _onPressButton = () => {
     Alert.alert('This will link later!');
   };
 
-  render() {
+  render () {
     return (
       <View style={{ flex: 1 }}>
         <Header headerText={'Simple Search'} />
         <Card>
           <CardSection>
             <DisplayContainer>
-              <View style={styles.thumbnailStyle}>
+              <View style={styles.thumbnailContainerStyle}>
                 <Image
                   style={styles.thumbnailStyle}
                   //source={{ uri: thumbnail_image }}
@@ -42,10 +40,6 @@ export default class App extends Component {
               If this is Craigslist, location information and date posted goes here.
             </Text>
           </CardSection>
-          <ButtonContainer>
-            <Button title="Buy Now" onPress={this._handleButtonPress} />
-            <Button title="Save" onPress={this._handleButtonPress} />
-          </ButtonContainer>
 
           <ButtonContainer>
             <TouchableOpacity onPress={this._onPressButton}>
@@ -59,13 +53,21 @@ export default class App extends Component {
               </Text>
             </TouchableOpacity>
           </ButtonContainer>
+          <View>
+            <Button
+              onPress={Actions.launchScreen}
+              title="Back"
+              color="#841584"
+              accessibilityLabel="Should be item component"
+            />
+          </View>
         </Card>
       </View>
     );
-  }
-}
+  };
+};
 
-const Header = props => {
+const Header = (props) => {
   const { headerTextStyle, viewStyle } = styles;
 
   return (
@@ -75,7 +77,7 @@ const Header = props => {
   );
 };
 
-const Card = props => {
+const Card = (props) => {
   return (
     <View style={styles.containerStyle}>
       {props.children}
@@ -83,7 +85,7 @@ const Card = props => {
   );
 };
 
-const CardSection = props => {
+const CardSection = (props) => {
   return (
     <View style={styles.containerStyle}>
       {props.children}
@@ -91,15 +93,16 @@ const CardSection = props => {
   );
 };
 
-const DisplayContainer = props => {
+const DisplayContainer = (props) => {
   return (
     <View style={styles.displayContainerStyle}>
+      {console.log(props)}
       {props.children}
     </View>
   );
 };
 
-const DisplayTextContainer = props => {
+const DisplayTextContainer = (props) => {
   return (
     <View style={styles.displayTextContainerStyle}>
       {props.children}
@@ -115,7 +118,7 @@ const DisplayTextContainer = props => {
 //   );
 // };
 
-const ButtonContainer = props => {
+const ButtonContainer = (props) => {
   return (
     <View style={styles.buttonContainerStyle}>
       {props.children}
@@ -162,7 +165,7 @@ const styles = {
     marginRight: 5,
     fontSize: 20,
     flexDirection: 'column',
-    justifyContent: 'space-around',
+    justifyContent: 'space-around'
   },
   // inputContainerStyle: {
   //   flex: 1,
@@ -173,6 +176,7 @@ const styles = {
     // paddingBottom: 5,
     flexDirection: 'row',
     justifyContent: 'space-around',
+    width: null
   },
   headerContentStyle: {
     flexDirection: 'column',
@@ -181,21 +185,26 @@ const styles = {
   storeTextStyle: {
     fontSize: 18,
   },
+  // thumbnailStyle: {
+  //   width: 150,
+  //   height: 150,
+  // },
   thumbnailStyle: {
-    width: 150,
-    height: 150,
+    width: 50,
+    height: 50,
   },
   thumbnailContainerStyle: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 10,
-    marginRight: 10,
+    marginRight: 10
   },
   button: {
     height: 40,
     backgroundColor: '#5294d6',
     color: 'white',
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   }
 };
