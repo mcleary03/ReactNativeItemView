@@ -7,7 +7,7 @@ export default class Item extends React.Component {
     Alert.alert('This will link later!');
   };
 
-  render () {
+  render() {
     return (
       <View style={{ flex: 1 }}>
         <Header headerText={'Simple Search'} />
@@ -19,7 +19,7 @@ export default class Item extends React.Component {
                   style={styles.thumbnailStyle}
                   //source={{ uri: thumbnail_image }}
                   source={{
-                    uri: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn  :ANd9GcTj5O6oWftXNLTQiZIwRUe4lrsoVn0CcJyhp9oX_ZYIJvKHOAEbu538ylvOihKZwfkzU  ZQgAKAo&usqp=CAE',
+                    uri: 'https://d3nevzfk7ii3be.cloudfront.net/igi/HrZAcS3cCISuPAt4.large'
                   }}
                 />
               </View>
@@ -43,29 +43,23 @@ export default class Item extends React.Component {
 
           <ButtonContainer>
             <TouchableOpacity onPress={this._onPressButton}>
-              <Text style={styles.button}>
+              <Text style={styles.buttonText}>
                 Buy Now
               </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this._onPressButton}>
-              <Text style={styles.button}>
+              <Text style={styles.buttonText}>
                 Save
               </Text>
             </TouchableOpacity>
           </ButtonContainer>
-          <View>
-            <Button
-              onPress={Actions.launchScreen}
-              title="Back"
-              color="#841584"
-              accessibilityLabel="Should be item component"
-            />
-          </View>
+
         </Card>
+
       </View>
     );
-  };
-};
+  }
+}
 
 const Header = (props) => {
   const { headerTextStyle, viewStyle } = styles;
@@ -96,7 +90,6 @@ const CardSection = (props) => {
 const DisplayContainer = (props) => {
   return (
     <View style={styles.displayContainerStyle}>
-      {console.log(props)}
       {props.children}
     </View>
   );
@@ -171,12 +164,12 @@ const styles = {
   //   flex: 1,
   // },
   buttonContainerStyle: {
-    flex: 1,
-    marginTop: 5,
-    // paddingBottom: 5,
+    backgroundColor: '#5294d6',
+    height: 40,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: null
+    borderRadius: 5,
+    alignSelf: 'stretch',
   },
   headerContentStyle: {
     flexDirection: 'column',
@@ -185,13 +178,9 @@ const styles = {
   storeTextStyle: {
     fontSize: 18,
   },
-  // thumbnailStyle: {
-  //   width: 150,
-  //   height: 150,
-  // },
   thumbnailStyle: {
-    width: 50,
-    height: 50,
+    width: 150,
+    height: 150,
   },
   thumbnailContainerStyle: {
     flex: 1,
@@ -200,11 +189,11 @@ const styles = {
     marginLeft: 10,
     marginRight: 10
   },
-  button: {
-    height: 40,
-    backgroundColor: '#5294d6',
+  buttonText: {
+    paddingLeft: '9%',
+    paddingRight: '9%',
     color: 'white',
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold'
   }
 };
