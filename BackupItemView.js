@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Image, Actions, TextInput, Alert } from 'react-native';
+import { Text, View, TouchableOpacity, Image, Actions, TextInput, Alert, ScrollView } from 'react-native';
 
 export default class App extends Component {
   _onPressButton = () => {
@@ -8,68 +8,47 @@ export default class App extends Component {
 
 render() {
     return (
-      <View style={{ flex: 1 }}>
-        <Header headerText={'Simple Search'} />
-        <InputContainer>
-          <TextInput
-            style={{height: 31, textAlign: 'center'}}
-            placeholder='search here'
-            // onChangeText={(text) => this.setState({text})}
-            // value={this.state.text}
-          />
-        </InputContainer>
+      <ScrollView style={{ flex: 1, backgroundColor: '#f1f1f1' }} stickyHeaderIndices={[0]}>
+        <StickyHeader />
         <Card>
-          <ButtonContainer>
-              <TouchableOpacity onPress={this._onPressButton}>
-                <Text style={styles.buttonText}>
-                  Buy Now
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={this._onPressButton}>
-                <Text style={styles.buttonText}>
-                  Save
-                </Text>
-              </TouchableOpacity>
-            </ButtonContainer>
           <CardSection>
             <DisplayContainer>
               <View style={styles.thumbnailContainerStyle}>
+                <Text style={{fontSize: 18}}>title</Text>
                 <Image
                   style={styles.thumbnailStyle}
-                  //source={{ uri: thumbnail_image }}
                   source={{
-                    uri: 'https://d3nevzfk7ii3be.cloudfront.net/igi/HrZAcS3cCISuPAt4.large'
+                    uri: 'http://greentreesarborcareinc.com/wp-content/uploads/2014/01/image-placeholder.jpg'
                   }}
                 />
               </View>
               <DisplayTextContainer>
-                <Text style={{fontSize: 20}}>searchType</Text>
-                <Text style={{fontSize: 16}}>title</Text>
-                <Text style={{fontSize: 18}}>price</Text>
+                <Text style={{fontSize: 18, color: '#031eff'}}>searchType</Text>
+                <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>price</Text>
               </DisplayTextContainer>
             </DisplayContainer>
           </CardSection>
-          <CardSection>
-            <Text>description</Text>
-            <Text>Delete this later, just placeholder text</Text>
-            <Text>Delete this later, just placeholder text</Text>
-            <Text>Delete this later, just placeholder text</Text>
-            <Text>Delete this later, just placeholder text</Text>
-            <Text>Delete this later, just placeholder text</Text>
-            <Text>Delete this later, just placeholder text</Text>
-          </CardSection>
-          <CardSection>
-            <Text>Location: location</Text>
-            <Text>Date Posted: date</Text>
-          </CardSection>
-
-
         </Card>
-
-      </View>
+      </ScrollView>
     );
   }
 }
+const StickyHeader = (props) => {
+
+  return (
+    <View>
+      <Header headerText={'Simple Search'} />
+      <InputContainer>
+        <TextInput
+          style={{height: 31, textAlign: 'center'}}
+          placeholder='search here'
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.text}
+        />
+      </InputContainer>
+    </View>
+  );
+};
 
 const Header = (props) => {
   const { headerTextStyle, viewStyle } = styles;
@@ -77,6 +56,7 @@ const Header = (props) => {
   return (
     <View style={viewStyle}>
       <TouchableOpacity style={styles.backButtonStyle}>
+        {/* onPress={Actions.launchScreen} */}
         <Text style={{color: 'white'}}>Back</Text>
       </TouchableOpacity>
       <Text style={headerTextStyle}>{props.headerText}</Text>
@@ -124,13 +104,6 @@ const InputContainer = (props) => {
   );
 };
 
-const ButtonContainer = (props) => {
-  return (
-    <View style={styles.buttonContainerStyle}>
-      {props.children}
-    </View>
-  );
-};
 
 const styles = {
   viewStyle: {
@@ -167,7 +140,11 @@ const styles = {
     marginBottom: 5,
   },
   displayContainerStyle: {
+    alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: 'row',
+    paddingBottom: 10,
+    paddingRight: 40,
   },
   displayTextContainerStyle: {
     marginRight: 5,
@@ -176,18 +153,24 @@ const styles = {
     justifyContent: 'space-around'
   },
   inputContainerStyle: {
+    backgroundColor: 'white',
+    justifyContent: 'center',
     borderRadius: 10,
-    height: 30,
+    height: 40,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
+    paddingTop: 10,
+    paddingBottom: 10,
     marginLeft: 30,
     marginRight: 30,
-    marginBottom: 10,
+    marginBottom: 20,
+    marginTop: 10,
   },
   buttonContainerStyle: {
-    marginTop: -10,
+    marginLeft: 5,
+    marginRight: 5,
     backgroundColor: '#5294d6',
     height: 40,
     flexDirection: 'row',
@@ -199,8 +182,8 @@ const styles = {
     justifyContent: 'space-around',
   },
   thumbnailStyle: {
-    width: 150,
-    height: 150,
+    width: 50,
+    height: 50,
   },
   thumbnailContainerStyle: {
     flex: 1,
@@ -208,13 +191,6 @@ const styles = {
     alignItems: 'center',
     marginLeft: 10,
     marginRight: 10
-  },
-  buttonText: {
-    paddingLeft: '9%',
-    paddingRight: '9%',
-    color: 'white',
-    fontSize: 30,
-    fontWeight: 'bold',
   },
   backButtonStyle: {
     position: 'absolute',

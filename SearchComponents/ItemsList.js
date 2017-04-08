@@ -28,74 +28,6 @@ render() {
               </DisplayTextContainer>
             </DisplayContainer>
           </CardSection>
-          <CardSection>
-            <DisplayContainer>
-              <View style={styles.thumbnailContainerStyle}>
-                <Text style={{fontSize: 18}}>title</Text>
-                <Image
-                  style={styles.thumbnailStyle}
-                  source={{
-                    uri: 'http://greentreesarborcareinc.com/wp-content/uploads/2014/01/image-placeholder.jpg'
-                  }}
-                />
-              </View>
-              <DisplayTextContainer>
-                <Text style={{fontSize: 18, color: '#031eff'}}>searchType</Text>
-                <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>price</Text>
-              </DisplayTextContainer>
-            </DisplayContainer>
-          </CardSection>
-          <CardSection>
-            <DisplayContainer>
-              <View style={styles.thumbnailContainerStyle}>
-                <Text style={{fontSize: 18}}>title</Text>
-                <Image
-                  style={styles.thumbnailStyle}
-                  source={{
-                    uri: 'http://greentreesarborcareinc.com/wp-content/uploads/2014/01/image-placeholder.jpg'
-                  }}
-                />
-              </View>
-              <DisplayTextContainer>
-                <Text style={{fontSize: 18, color: '#031eff'}}>searchType</Text>
-                <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>price</Text>
-              </DisplayTextContainer>
-            </DisplayContainer>
-          </CardSection>
-          <CardSection>
-            <DisplayContainer>
-              <View style={styles.thumbnailContainerStyle}>
-                <Text style={{fontSize: 18}}>title</Text>
-                <Image
-                  style={styles.thumbnailStyle}
-                  source={{
-                    uri: 'http://greentreesarborcareinc.com/wp-content/uploads/2014/01/image-placeholder.jpg'
-                  }}
-                />
-              </View>
-              <DisplayTextContainer>
-                <Text style={{fontSize: 18, color: '#031eff'}}>searchType</Text>
-                <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>price</Text>
-              </DisplayTextContainer>
-            </DisplayContainer>
-          </CardSection>
-          <CardSection>
-            <DisplayContainer>
-              <View style={styles.thumbnailContainerStyle}>
-                <Text style={{fontSize: 18}}>title</Text>
-                <Image
-                  style={styles.thumbnailStyle}
-                  source={{
-                    uri: 'http://greentreesarborcareinc.com/wp-content/uploads/2014/01/image-placeholder.jpg'
-                  }}
-                />
-              </View>
-              <DisplayTextContainer>
-                <Text style={{fontSize: 18, color: '#031eff'}}>searchType</Text>
-                <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>price</Text>
-              </DisplayTextContainer>
-            </DisplayContainer>
-          </CardSection>
         </Card>
       </ScrollView>
     );
@@ -110,8 +42,8 @@ const StickyHeader = (props) => {
         <TextInput
           style={{height: 31, textAlign: 'center'}}
           placeholder='search here'
-          // onChangeText={(text) => this.setState({text})}
-          // value={this.state.text}
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.text}
         />
       </InputContainer>
     </View>
