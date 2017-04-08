@@ -1,10 +1,128 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, Image, Actions, TextInput, Alert } from 'react-native';
-// import {Actions} from 'react-native-router-flux'
+import { Actions } from 'react-native-router-flux'
+import { StickyHeader, Card } from './common'
 
 export default class App extends Component {
   _onPressButton = () => {
     Alert.alert('This will link later!');
+  };
+  import React, { Component } from 'react';
+  import { Text, View, TouchableOpacity, Image, Actions, TextInput, Alert, ScrollView } from 'react-native';
+
+  export default class App extends Component {
+    _onPressButton = () => {
+      Alert.alert('This will link later!');
+    };
+
+  render() {
+      return (
+        <ScrollView style={{ flex: 1, backgroundColor: '#f1f1f1' }} stickyHeaderIndices={[0]}>
+          <StickyHeader />
+          <Card>
+            <CardSection>
+              <DisplayContainer>
+                <View style={styles.thumbnailContainerStyle}>
+                  <Text style={{fontSize: 18}}>title</Text>
+                  <Image
+                    style={styles.thumbnailStyle}
+                    source={{
+                      uri: 'http://greentreesarborcareinc.com/wp-content/uploads/2014/01/image-placeholder.jpg'
+                    }}
+                  />
+                </View>
+                <DisplayTextContainer>
+                  <Text style={{fontSize: 18, color: '#031eff'}}>searchType</Text>
+                  <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>price</Text>
+                </DisplayTextContainer>
+              </DisplayContainer>
+            </CardSection>
+          </Card>
+        </ScrollView>
+      );
+    }
+  }
+
+
+
+  const CardSection = (props) => {
+    return (
+      <View style={styles.containerStyle}>
+        {props.children}
+      </View>
+    );
+  };
+
+  const DisplayContainer = (props) => {
+    return (
+      <View style={styles.displayContainerStyle}>
+        {props.children}
+      </View>
+    );
+  };
+
+  const DisplayTextContainer = (props) => {
+    return (
+      <View style={styles.displayTextContainerStyle}>
+        {props.children}
+      </View>
+    );
+  };
+
+  const styles = {
+    displayContainerStyle: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'row',
+      paddingBottom: 10,
+      paddingRight: 40,
+    },
+    displayTextContainerStyle: {
+      marginRight: 5,
+      fontSize: 20,
+      flexDirection: 'column',
+      justifyContent: 'space-around'
+    },
+    inputContainerStyle: {
+      backgroundColor: 'white',
+      justifyContent: 'center',
+      borderRadius: 10,
+      height: 40,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.8,
+      shadowRadius: 2,
+      paddingTop: 10,
+      paddingBottom: 10,
+      marginLeft: 30,
+      marginRight: 30,
+      marginBottom: 20,
+      marginTop: 10,
+    },
+    buttonContainerStyle: {
+      marginLeft: 5,
+      marginRight: 5,
+      backgroundColor: '#5294d6',
+      height: 40,
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      borderRadius: 5,
+    },
+    headerContentStyle: {
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+    },
+    thumbnailStyle: {
+      width: 50,
+      height: 50,
+    },
+    thumbnailContainerStyle: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginLeft: 10,
+      marginRight: 10
+    },
   };
 
 render() {

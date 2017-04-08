@@ -14,3 +14,5 @@ const SearchBar = (props) => {
     </InputContainer>
   );
 };
+
+export {SearchBar};

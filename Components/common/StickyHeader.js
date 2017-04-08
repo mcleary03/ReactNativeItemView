@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Image, Actions, TextInput, Alert, ScrollView } from 'react-native';
+import { View, TextInput} from 'react-native';
+import { Header } from './index'
 
 const StickyHeader = (props) => {
 
@@ -17,3 +18,5 @@ const StickyHeader = (props) => {
     </View>
   );
 };
+
+export {StickyHeader};
