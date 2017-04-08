@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, Image, Actions, TextInput, Alert } from 'react-native';
-// import {Actions} from 'react-native-router-flux'
 
 export default class App extends Component {
   _onPressButton = () => {
@@ -9,7 +8,7 @@ export default class App extends Component {
 
 render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#f1f1f1' }}>
+      <View style={{ flex: 1 }}>
         <Header headerText={'Simple Search'} />
         <InputContainer>
           <TextInput
@@ -19,44 +18,54 @@ render() {
             // value={this.state.text}
           />
         </InputContainer>
-          <ButtonContainer>
-            <TouchableOpacity onPress={this._onPressButton}>
-              <Text style={styles.buttonText}>
-                Buy Now
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this._onPressButton}>
-              <Text style={styles.buttonText}>
-                Save
-              </Text>
-            </TouchableOpacity>
-          </ButtonContainer>
         <Card>
+          <ButtonContainer>
+              <TouchableOpacity onPress={this._onPressButton}>
+                <Text style={styles.buttonText}>
+                  Buy Now
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this._onPressButton}>
+                <Text style={styles.buttonText}>
+                  Save
+                </Text>
+              </TouchableOpacity>
+            </ButtonContainer>
           <CardSection>
             <DisplayContainer>
               <View style={styles.thumbnailContainerStyle}>
-                <Text style={{fontSize: 18}}>title</Text>
                 <Image
                   style={styles.thumbnailStyle}
+                  //source={{ uri: thumbnail_image }}
                   source={{
-                    uri: 'http://greentreesarborcareinc.com/wp-content/uploads/2014/01/image-placeholder.jpg'
+                    uri: 'https://d3nevzfk7ii3be.cloudfront.net/igi/HrZAcS3cCISuPAt4.large'
                   }}
                 />
               </View>
               <DisplayTextContainer>
-                <Text style={{fontSize: 18, color: '#031eff'}}>searchType</Text>
-                <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>price</Text>
+                <Text style={{fontSize: 20}}>searchType</Text>
+                <Text style={{fontSize: 16}}>title</Text>
+                <Text style={{fontSize: 18}}>price</Text>
               </DisplayTextContainer>
             </DisplayContainer>
           </CardSection>
           <CardSection>
             <Text>description</Text>
+            <Text>Delete this later, just placeholder text</Text>
+            <Text>Delete this later, just placeholder text</Text>
+            <Text>Delete this later, just placeholder text</Text>
+            <Text>Delete this later, just placeholder text</Text>
+            <Text>Delete this later, just placeholder text</Text>
+            <Text>Delete this later, just placeholder text</Text>
           </CardSection>
           <CardSection>
             <Text>Location: location</Text>
             <Text>Date Posted: date</Text>
           </CardSection>
+
+
         </Card>
+
       </View>
     );
   }
@@ -68,7 +77,6 @@ const Header = (props) => {
   return (
     <View style={viewStyle}>
       <TouchableOpacity style={styles.backButtonStyle}>
-        {/* onPress={Actions.launchScreen} */}
         <Text style={{color: 'white'}}>Back</Text>
       </TouchableOpacity>
       <Text style={headerTextStyle}>{props.headerText}</Text>
@@ -160,7 +168,6 @@ const styles = {
   },
   displayContainerStyle: {
     flexDirection: 'row',
-    paddingBottom: 10,
   },
   displayTextContainerStyle: {
     marginRight: 5,
@@ -169,24 +176,18 @@ const styles = {
     justifyContent: 'space-around'
   },
   inputContainerStyle: {
-    backgroundColor: 'white',
-    justifyContent: 'center',
     borderRadius: 10,
-    height: 40,
+    height: 30,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
-    paddingTop: 10,
-    paddingBottom: 10,
     marginLeft: 30,
     marginRight: 30,
-    marginBottom: 20,
-    marginTop: 10,
+    marginBottom: 10,
   },
   buttonContainerStyle: {
-    marginLeft: 5,
-    marginRight: 5,
+    marginTop: -10,
     backgroundColor: '#5294d6',
     height: 40,
     flexDirection: 'row',
