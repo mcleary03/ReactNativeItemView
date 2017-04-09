@@ -21,10 +21,10 @@ render() {
         <ScrollView style={{ flex: 1 }}>
         <Card>
           <CardSection>
-            <DisplayTextContainer>
+            <SearchResultHeader>
               <Text style={{fontSize: 18, color: '#031eff'}}>searchType</Text>
               <Text style={{fontSize: 20, color: '#03af1f', fontWeight: 'bold'}}>{this.props.price}</Text>
-            </DisplayTextContainer>
+            </SearchResultHeader>
           </CardSection>
           <CardSection>
             <DisplayContainer>
@@ -104,9 +104,9 @@ const DisplayContainer = (props) => {
   );
 };
 
-const DisplayTextContainer = (props) => {
+const SearchResultHeader = (props) => {
   return (
-    <View style={styles.displayTextContainerStyle}>
+    <View style={styles.searchResultHeaderStyle}>
       {props.children}
     </View>
   );
@@ -127,6 +127,7 @@ const ButtonContainer = (props) => {
     </View>
   );
 };
+
 
 const styles = {
   viewStyle: {
@@ -167,7 +168,7 @@ const styles = {
     flexDirection: 'row',
     paddingBottom: 10,
   },
-  displayTextContainerStyle: {
+  searchResultHeaderStyle: {
     backgroundColor: 'white',
     flexDirection: 'column',
     alignItems: 'center',
@@ -189,13 +190,14 @@ const styles = {
     marginTop: 10,
   },
   buttonContainerStyle: {
-    marginBottom: 10,
+    marginBottom: 5,
     marginLeft: 5,
     marginRight: 5,
     backgroundColor: '#FF4500',
-    height: 40,
+    height: 60,
     flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems: 'center',
     borderRadius: 5,
   },
   headerContentStyle: {
