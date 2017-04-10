@@ -11,7 +11,7 @@ export default class Item extends Component {
 constructor(props){
   super(props);
 }
-// alert(this.props);
+//alert({this.props});
 
 render() {
     return (
@@ -22,7 +22,7 @@ render() {
         <Card>
           <CardSection>
             <SearchResultHeader>
-              <Text style={{fontSize: 18, color: '#FF4500'}}>{this.props.url}</Text>
+              <Text style={{fontSize: 18, fontWeight: 'bold', color: '#FF4500'}}>{(this.props.url.match(/\w+?\.(.*?)(\.com|\.org)/)[1]).toUpperCase()}</Text>
               <Text style={{fontSize: 20, color: '#03AF1F', fontWeight: 'bold'}}>{this.props.price}</Text>
             </SearchResultHeader>
           </CardSection>
